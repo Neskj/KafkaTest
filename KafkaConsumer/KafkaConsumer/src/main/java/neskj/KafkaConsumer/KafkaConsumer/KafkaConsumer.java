@@ -1,18 +1,18 @@
 package neskj.KafkaConsumer.KafkaConsumer;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+
+import java.util.logging.Logger;
 
 @Component
 public class KafkaConsumer {
 
-    @KafkaListener(topics = "course",groupId = "my_consumer")
-    public void listen(String message){
+    private final static Logger logger = Logger.getLogger(KafkaConsumer.class.getName());
 
-        System.out.println("Recive new message : "+message);
+    @KafkaListener(topics = "course", groupId = "my_consumer")
+    public void listen(String message) {
 
-
-
+        logger.info("\nRecive new message from Producer : " + message);
     }
 }

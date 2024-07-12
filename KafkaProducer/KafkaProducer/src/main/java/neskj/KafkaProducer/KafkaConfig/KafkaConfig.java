@@ -12,6 +12,4 @@ public class KafkaConfig {
 
         return new NewTopic("course",1,(short)1);
     }
-
-
 }
